@@ -10,14 +10,15 @@ username_prefix = 'algo22_tmp'
 def generate_temp_username(suffix) -> str:
     return f"{username_prefix}_{suffix}"
 
-def generate_strong_password(length: int = 12) -> str:
-    chars = string.ascii_letters + string.digits + string.punctuation
+def generate_strong_password(length: int = 8) -> str:
+    allowed_punctuations = '@&%#'
+    chars = string.ascii_letters + string.digits + allowed_punctuations
     # Ensure at least one character from each category
     password = [
         random.choice(string.ascii_lowercase),
         random.choice(string.ascii_uppercase),
         random.choice(string.digits),
-        random.choice(string.punctuation),
+        random.choice(allowed_punctuations),
     ]
     if length < 4:
         raise ValueError("Password length must be at least 4")
@@ -59,3 +60,7 @@ def get_missing_students(id):
                 # Return ID, 3rd, and 4th columns
                 return values[0], values[2], values[3]
     return None  # If not found
+
+if __name__ == '__main__':
+    # Example usage
+    print(generate_strong_password(10))
