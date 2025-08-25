@@ -6,7 +6,7 @@ Automated script for creating Codeforces accounts and teams.
 
 1. Install required packages:
 ```bash
-pip install selenium beautifulsoup4 lxml temp_mails
+pip install selenium beautifulsoup4 lxml temp_mails openpyxl
 ```
 
 2. Launch Chrome with remote debugging:
